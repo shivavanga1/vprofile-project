@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-    maven "Maven 3.9.9" // Adjust this if the name is different
-}
+        maven "Maven" // Use the correct name configured in Jenkins
+    }
 
     environment {
-        MAVEN_HOME = tool 'Maven 3.9.9'
+        MAVEN_HOME = tool 'Maven' // Update this if the name is different
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.31.40.209:8081"
