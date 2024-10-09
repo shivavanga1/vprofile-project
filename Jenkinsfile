@@ -3,9 +3,8 @@ pipeline {
 	agent any
 	node {
     stage('Build') {
-        withEnv(["PATH+MAVEN=${tool 'Maven 3.8.5'}/bin"]) {
-            sh 'mvn clean install -DskipTests'
-        }
+        def mvnHome = tool 'Maven 3.8.5' // Replace with the name of your Maven installation in Jenkins
+        sh "${mvnHome}/bin/mvn clean install -DskipTests"
     }
 }
 
