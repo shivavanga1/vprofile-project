@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = tool 'Maven 3.8.5' // Replace with the Maven tool name in Jenkins
+        MAVEN_HOME = tool 'Maven 3.8.5' // Replace with your Maven installation name
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.31.40.209:8081"
@@ -11,7 +11,7 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexuslogin"
         ARTVERSION = "${env.BUILD_ID}"
     }
-	
+
     stages {
         stage('BUILD') {
             steps {
@@ -36,7 +36,7 @@ pipeline {
                 sh "${MAVEN_HOME}/bin/mvn verify -DskipUnitTests"
             }
         }
-		
+
         stage('CODE ANALYSIS WITH CHECKSTYLE') {
             steps {
                 sh "${MAVEN_HOME}/bin/mvn checkstyle:checkstyle"
