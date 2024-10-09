@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        MAVEN_HOME = tool 'Maven 3.8.5' // Replace with your Maven installation name
+        MAVEN_HOME = tool 'Maven 3.8.5' // Name from Jenkins Global Tool Configuration
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.31.40.209:8081"
