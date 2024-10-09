@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     tools {
-        maven "maven3"
+        maven "maven"
     }
 
     environment {
-        MAVEN_HOME = tool 'Maven3' // Ensure this is the correct tool name
+        MAVEN_HOME = tool 'Maven' // Ensure this is the correct tool name
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "172.31.40.209:8081"
