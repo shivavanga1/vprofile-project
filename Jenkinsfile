@@ -1,7 +1,9 @@
 pipeline {
     agent any
-
-    environment {
+    tools {
+        maven 'Maven 3.8.5'  // Replace with the name of your configured Maven version
+    }
+        environment {
         MAVEN_HOME = tool 'Maven 3.8.5' // Name from Jenkins Global Tool Configuration
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
@@ -11,7 +13,14 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexuslogin"
         ARTVERSION = "${env.BUILD_ID}"
     }
-
+    }
+    stages {
+        stage('Build') {
+            steps {
+                // Use the Maven tool defined in Jenkins
+                sh 'mvn clean install -DskipTests'
+            }
+        }
     stages {
         stage('BUILD') {
             steps {
