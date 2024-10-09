@@ -2,9 +2,14 @@ pipeline {
     
 	agent any
 /*	
-	tools {
-        maven "maven3"
+	node {
+    stage('Build') {
+        withEnv(["PATH+MAVEN=${tool 'Maven 3.8.5'}/bin"]) {
+            sh 'mvn clean install -DskipTests'
+        }
     }
+}
+
 */	
     environment {
         NEXUS_VERSION = "nexus3"
