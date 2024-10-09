@@ -1,13 +1,6 @@
 pipeline {
     
 	agent any
-	node {
-    stage('Build') {
-        def mvnHome = tool 'Maven 3.8.5' // Replace with the name of your Maven installation in Jenkins
-        sh "${mvnHome}/bin/mvn clean install -DskipTests"
-    }
-}
-
 /*	
 	tools {
         maven "maven3"
