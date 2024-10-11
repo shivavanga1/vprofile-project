@@ -15,8 +15,6 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "nexuslogin"
         ARTVERSION = "${BUILD_ID}"  // Use BUILD_ID for artifact versioning
     }    
-        timeout(time: 90, unit: 'MINUTES'){
-    }
 
     stages {
         stage('Build') {
@@ -72,7 +70,7 @@ pipeline {
                         -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
                     '''
                 }
-                timeout(time: 10, unit: 'MINUTES') {
+                timeout(time: 90, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
