@@ -14,6 +14,7 @@ pipeline {
         NEXUS_REPO_ID = "vprofile-release"
         NEXUS_CREDENTIAL_ID = "nexuslogin"
         ARTVERSION = "${BUILD_ID}"  // Use BUILD_ID for artifact versioning
+        timeout(time: 60, unit: 'MINUTES')
     }
 
     stages {
