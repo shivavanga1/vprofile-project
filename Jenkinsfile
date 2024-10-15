@@ -58,7 +58,7 @@ pipeline {
                 scannerHome = tool 'sonarscanner'
             }
             steps {
-                withSonarQubeEnv('sonar-pro') {
+                withSonarQubeEnv('sonar') {
                     sh '''
                         ${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                         -Dsonar.projectName=vprofile-repo \
