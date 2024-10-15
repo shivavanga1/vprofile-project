@@ -58,7 +58,7 @@ pipeline {
                 scannerHome = tool 'sonarscanner'
             }
             steps {
-                withSonarQubeEnv('SonarQube Server') {
+                withSonarQubeEnv('sonarscanner') {
                     sh '''
                     def scannerHome = tool name: 'sonarscanner', type: 'SonarQubeScanner'
                         ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://localhost:9000 \
