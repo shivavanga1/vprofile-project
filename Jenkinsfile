@@ -61,7 +61,8 @@ pipeline {
                 withSonarQubeEnv('sonarscanner') {
                     sh '''
                         ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://3.6.160.69:9000 \
-                        -Dsonar.projectName=vprofile-repo \
+                        -Dsonar.projectName=vprofile \
+                        -Dsonar.projectKey=vprofile \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/ \
                         -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
