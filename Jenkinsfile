@@ -60,7 +60,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarscanner') {
                     sh '''
-                        ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://3.6.160.69:9000 \
+                        ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://http://35.154.14.153:9000 \
                         -Dsonar.projectName=vprofile \
                         -Dsonar.projectKey=vprofile \
                         -Dsonar.projectVersion=1.0 \
@@ -69,7 +69,7 @@ pipeline {
                         -Dsonar.junit.reportsPath=target/surefire-reports/ \
                         -Dsonar.jacoco.reportsPath=target/jacoco.exec \
                         -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
-                        -Dsonar.login=sqp_f3d0d2005018ff19ab98c8a261120532352c4544
+                        -Dsonar.login=sqp_9df382e1d25cba5b0057cd8b789863fa5868efc0
                     '''
                 }
                 timeout(time: 10, unit: 'MINUTES') {
