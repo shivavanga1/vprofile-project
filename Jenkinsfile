@@ -69,7 +69,7 @@ pipeline {
                         -Dsonar.junit.reportsPath=target/surefire-reports/ \
                         -Dsonar.jacoco.reportsPath=target/jacoco.exec \
                         -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
-                        -Dsonar.login=admin -Dsonar.password=Enter!@09
+                        -Dsonar.login=sqp_f3d0d2005018ff19ab98c8a261120532352c4544
                     '''
                 }
                 timeout(time: 10, unit: 'MINUTES') {
