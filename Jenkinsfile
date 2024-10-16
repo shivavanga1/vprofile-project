@@ -60,7 +60,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarscanner') {
                     sh '''
-                        ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://http://3.6.160.69:9000/projects/create \
+                        ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://3.6.160.69:9000 \
                         -Dsonar.projectName=vprofile-repo \
                         -Dsonar.projectVersion=1.0 \
                         -Dsonar.sources=src/ \
