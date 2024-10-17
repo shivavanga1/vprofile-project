@@ -58,20 +58,21 @@ pipeline {
                 scannerHome = tool 'sonarscanner'
             }
             steps {
-                withSonarQubeEnv('sonarscanner') {
-                    sh '''
-                        ${scannerHome}/bin/sonar-scanner -Dsonar.host.url=http://35.154.14.153:9000 \
-                        -Dsonar.projectName=vprofile \
-                        -Dsonar.projectKey=vprofile \
-                        -Dsonar.projectVersion=1.0 \
-                        -Dsonar.sources=src/ \
-                        -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
-                        -Dsonar.junit.reportsPath=target/surefire-reports/ \
-                        -Dsonar.jacoco.reportsPath=target/jacoco.exec \
-                        -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
-                        -Dsonar.login=sqp_b3c3de3a5d62f513c99499d3ab2c24077287d705
-                    '''
-                }
+               withCredentials([string(credentialsId: 'sqp_b3c3de3a5d62f513c99499d3ab2c24077287d705', variable: 'SONAR_TOKEN')]) {
+    sh '''
+        /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarscanner/bin/sonar-scanner \
+        -Dsonar.host.url=http://35.154.14.153:9000 \
+        -Dsonar.projectName=vprofile \
+        -Dsonar.projectKey=vprofile \
+        -Dsonar.projectVersion=1.0 \
+        -Dsonar.sources=src/ \
+        -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
+        -Dsonar.junit.reportsPath=target/surefire-reports/ \
+        -Dsonar.jacoco.reportsPath=target/jacoco.exec \
+        -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml \
+        -Dsonar.login=$SONAR_TOKEN
+    '''
+}
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
