@@ -58,7 +58,7 @@ pipeline {
                 scannerHome = tool 'sonarscanner'
             }
             steps {
-               withCredentials([string(credentialsId: 'sqp_b3c3de3a5d62f513c99499d3ab2c24077287d705', variable: 'SONAR_TOKEN')]) {
+               withCredentials([string(credentialsId: 'sqp_9f1e0975e4507ca180994bb1660d075818964d26', variable: 'SONAR_TOKEN')]) {
     sh '''
         /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarscanner/bin/sonar-scanner \
         -Dsonar.host.url=http://35.154.14.153:9000 \
