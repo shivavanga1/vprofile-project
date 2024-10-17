@@ -66,8 +66,7 @@ pipeline {
                    -Dsonar.java.binaries=target/test-classes/com/visualpathit/account/controllerTest/ \
                    -Dsonar.junit.reportsPath=target/surefire-reports/ \
                    -Dsonar.jacoco.reportsPath=target/jacoco.exec \
-                   -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml
-                   -Dsonar.login=sqp_9f1e0975e4507ca180994bb1660d075818964d26'''
+                   -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
             }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
