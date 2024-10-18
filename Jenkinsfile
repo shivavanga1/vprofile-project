@@ -68,7 +68,9 @@ pipeline {
                    -Dsonar.jacoco.reportsPath=target/jacoco.exec \
                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
             }
-                
+               timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                } 
             }
         }
 
@@ -86,17 +88,18 @@ pipeline {
                     echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version: ${ARTVERSION}"
 
                     nexusArtifactUploader(
-    nexusVersion: 'nexus3',
-    protocol: 'http',
-    nexusUrl: 'http://35.154.14.153:8081/',
-    groupId: 'com.visualpathit',
-    version: '18',
-    repository: 'http://35.154.14.153:8081/repository/maven-snapshots/',
-    credentialsId: '742a3d53-e27a-3d98-b74b-159c04982999',  // Update this with your credentials ID
-    artifacts: [
-        [artifactId: 'vprofile-v2', classifier: '', file: 'target/vprofile-v2.war', type: 'war']
-    ]
-)
+                        nexusVersion: NEXUS_VERSION,
+                        protocol: NEXUS_PROTOCOL,
+                        nexusUrl: NEXUS_URL,
+                        groupId: pom.groupId,
+                        version: ARTVERSION,
+                        repository: NEXUS_REPOSITORY,
+                        credentialsId: NEXUS_CREDENTIAL_ID,
+                        artifacts: [
+                            [artifactId: pom.artifactId, classifier: '', file: artifactPath, type: pom.packaging],
+                            [artifactId: pom.artifactId, classifier: '', file: 'pom.xml', type: 'pom']
+                        ]
+                    )
 
                 }
             }
