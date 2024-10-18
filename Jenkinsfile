@@ -69,7 +69,7 @@ pipeline {
                    -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml'''
             }
                timeout(time: 10, unit: 'MINUTES') {
-                    waitForLogstash abortPipeline: true
+                    waitForQualityGates abortPipeline: true
                 } 
             }
         }
