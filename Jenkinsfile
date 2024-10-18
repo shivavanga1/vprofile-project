@@ -10,8 +10,8 @@ pipeline {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "35.154.14.153:8081"
-        NEXUS_REPOSITORY = "loginvproject"
-        NEXUS_REPO_ID = "loginvproject"
+        NEXUS_REPOSITORY = "vproject"
+        NEXUS_REPO_ID = "vproject"
         NEXUS_CREDENTIAL_ID = "nexus"
         ARTVERSION = "${BUILD_ID}"  // Use BUILD_ID for artifact versioning
     }    
