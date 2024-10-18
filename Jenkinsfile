@@ -11,7 +11,7 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "35.154.14.153:8081"
         NEXUS_REPOSITORY = "vproject"
-        NEXUS_REPO_ID = "vproject"
+        NEXUS_REPO_ID = "http://35.154.14.153:8081/repository/vproject"
         NEXUS_CREDENTIAL_ID = "nexus"
         ARTVERSION = "${BUILD_ID}"  // Use BUILD_ID for artifact versioning
     }    
