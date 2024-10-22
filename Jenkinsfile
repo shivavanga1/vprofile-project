@@ -9,9 +9,9 @@ pipeline {
         MAVEN_HOME = tool 'Maven' // Update this if the name is different
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "65.0.89.109:8081"
+        NEXUS_URL = "13.203.50.45:8081"
         NEXUS_REPOSITORY = "vproject"
-        NEXUS_REPO_ID = "http://65.0.89.109:8081/repository/vproject"
+        NEXUS_REPO_ID = "http://13.203.50.45:8081/repository/vproject"
         NEXUS_CREDENTIAL_ID = "nexus"
         ARTVERSION = "${BUILD_ID}"  // Use BUILD_ID for artifact versioning
     }    
